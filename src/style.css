@@ -1,0 +1,39 @@
+body{
+    display: flex;
+    justify-content: center;
+}
+
+.contacts{
+    text-align: center;
+    border: 2px solid red;
+    border-radius: 20px;
+    padding: 20px 30px;
+    width: 750px;
+    background-color: blanchedalmond;
+}
+
+input{
+    padding: 5px 6px;
+    border: 1px solid red;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+button{
+    padding: 8px 10px;
+    border: 1px solid red;
+    border-radius: 10px;
+    background-color: gold;
+}
+
+.contact{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.text{
+    border: 1px solid red;
+    border-radius: 5px;
+    background-color: brown;
+}
