@@ -1,0 +1,39 @@
+body {
+  justify-content: center;
+  display: flex;
+}
+
+.contacts {
+  text-align: center;
+  background-color: #ffebcd;
+  border: 2px solid red;
+  border-radius: 20px;
+  width: 750px;
+  padding: 20px 30px;
+}
+
+input {
+  border: 1px solid red;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  padding: 5px 6px;
+}
+
+button {
+  background-color: gold;
+  border: 1px solid red;
+  border-radius: 10px;
+  padding: 8px 10px;
+}
+
+.contact {
+  justify-content: center;
+  gap: 20px;
+  display: flex;
+}
+
+.text {
+  border: 1px solid red;
+  border-radius: 5px;
+}
+/*# sourceMappingURL=hw-js-frontend4-9.2cdaf7bc.css.map */

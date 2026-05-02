@@ -207,15 +207,15 @@
       });
     }
   }
-})({"9JJ5D":[function(require,module,exports,__globalThis) {
+})({"7wZbQ":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SERVER_PORT = 1234;
 var HMR_SECURE = false;
-var HMR_ENV_HASH = "d6ea1d42532a7575";
+var HMR_ENV_HASH = "439701173a9199ea";
 var HMR_USE_SSE = false;
-module.bundle.HMR_BUNDLE_ID = "7055c94b59712999";
+module.bundle.HMR_BUNDLE_ID = "9440bf780f77c784";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_SERVER_PORT, HMR_ENV_HASH, HMR_SECURE, HMR_USE_SSE, chrome, browser, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -713,8 +713,57 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
     }
 }
 
-},{}],"4M6V8":[function(require,module,exports,__globalThis) {
+},{}],"2R06K":[function(require,module,exports,__globalThis) {
+const nameEl = document.querySelector(".name");
+const secondNameEl = document.querySelector(".secondname");
+const telEl = document.querySelector(".tel");
+const emailEl = document.querySelector(".email");
+const btnEl = document.querySelector(".btn");
+const listEl = document.querySelector(".list");
+const CONTACTS_KEY = "contacts";
+const arr = JSON.parse(localStorage.getItem(CONTACTS_KEY)) || [];
+addObj(arr);
+btnEl.addEventListener("click", ()=>{
+    const data = {
+        name: nameEl.value,
+        secondName: secondNameEl.value,
+        tel: telEl.value,
+        email: emailEl.value
+    };
+    arr.push(data);
+    savedData();
+    nameEl.value = "";
+    secondNameEl.value = "";
+    telEl.value = "";
+    emailEl.value = "";
+    console.log(data);
+    addObj(arr);
+});
+function addObj(arr) {
+    const item = arr.map((item, index)=>{
+        return `<li class="contact">
+                    <p class="text">\u{41A}\u{43E}\u{43D}\u{442}\u{430}\u{43A}\u{442}: ${item.name}</p>
+                    <p class="text">\u{406}\u{43C}'\u{44F}: ${item.name}</p>
+                    <p class="text">\u{41F}\u{440}\u{456}\u{437}\u{432}\u{438}\u{449}\u{435}: ${item.secondName}</p>
+                    <p class="text">\u{422}\u{435}\u{43B}\u{435}\u{444}\u{43E}\u{43D}: ${item.tel}</p>
+                    <p class="text">\u{415}\u{43B}\u{435}\u{43A}\u{442}\u{440}\u{43E}\u{43D}\u{43D}\u{430} \u{43F}\u{43E}\u{448}\u{442}\u{430}: ${item.email}</p>
+                    <button type="button" data-index="${index}">\u{412}\u{438}\u{434}\u{430}\u{43B}\u{438}\u{442}\u{438}</button>
+                </li>`;
+    }).join("");
+    listEl.innerHTML = item;
+}
+listEl.addEventListener("click", (event)=>{
+    if (event.target.tagName === "BUTTON") {
+        const index = event.target.dataset.index;
+        arr.splice(index, 1);
+        savedData();
+        addObj(arr);
+    }
+});
+function savedData() {
+    localStorage.setItem(CONTACTS_KEY, JSON.stringify(arr));
+}
 
-},{}]},["9JJ5D","4M6V8"], "4M6V8", "parcelRequire5063", {})
+},{}]},["7wZbQ","2R06K"], "2R06K", "parcelRequire5063", {})
 
-//# sourceMappingURL=hw-js-frontend4-9.59712999.js.map
+//# sourceMappingURL=hw-js-frontend4-9.0f77c784.js.map
