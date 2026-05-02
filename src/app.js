@@ -2,9 +2,15 @@ const nameEl = document.querySelector(".name");
 const secondNameEl = document.querySelector(".secondname");
 const telEl = document.querySelector(".tel");
 const emailEl = document.querySelector(".email");
+
 const btnEl = document.querySelector(".btn");
+
 const listEl = document.querySelector(".list");
-const arr = JSON.parse(localStorage.getItem("contacts")) || [];
+
+const CONTACTS_KEY = "contacts"
+
+const arr = JSON.parse(localStorage.getItem(CONTACTS_KEY)) || [];
+addObj(arr)
 
 btnEl.addEventListener("click", () => {
     const data = {
@@ -15,15 +21,20 @@ btnEl.addEventListener("click", () => {
     }
 
     arr.push(data);
-    localStorage.setItem("contacts", JSON.stringify(arr));
+    savedData()
+    nameEl.value = "";
+    secondNameEl.value = "";
+    telEl.value = "";
+    emailEl.value = "";
     console.log(data);
     addObj(arr);
 })
 
+
 function addObj(arr) {
     const item = arr.map((item, index) => {
         return `<li class="contact">
-                    <p class="text">Контакт ${item.name}</p>
+                    <p class="text">Контакт: ${item.name}</p>
                     <p class="text">Ім'я: ${item.name}</p>
                     <p class="text">Прізвище: ${item.secondName}</p>
                     <p class="text">Телефон: ${item.tel}</p>
@@ -38,7 +49,11 @@ listEl.addEventListener("click", (event) => {
     if (event.target.tagName === "BUTTON") {
         const index = event.target.dataset.index;
         arr.splice(index, 1);
-        localStorage.setItem("contacts", JSON.stringify(arr));
+        savedData()
         addObj(arr);
     }
 });
+
+function savedData() {
+    localStorage.setItem(CONTACTS_KEY, JSON.stringify(arr));
+}
